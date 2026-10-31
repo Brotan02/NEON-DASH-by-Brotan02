@@ -58,7 +58,7 @@ const LV=[
 ];
 const NL=5;
 // ▼▼ НАСТРОЙКА СЕРВЕРА (Firebase): впиши apiKey и адрес базы, когда выкладываешь игру на свой сайт ▼▼
-const FBCFG={key:'AIzaSyBtDGQNJAsIpgnyS-MZzvc8oYHDB1e3OWM',db:'https://neon-dash-675e8-default-rtdb.europe-west1.firebasedatabase.app/'};
+const FBCFG={key:'',db:''};
 let lv=0,cd=null,ck=0,admin=false,cust=[],testing=false,db=null,edM=new Map(),edG=new Set(),edI={},edT='s',ecx=-60,dr=null,lst=[],lmode='mine',lpg=0,lq='',lmsg='',nt='',nu=0,spg=0,mode=0,spd=1,jt=new Set(),hcs={},tstart=0,lvKeep=-1,ROOM=null,mp=null,mpMsg='',mpRes='',mpOppFin=0,lastSend=0,OYL=null,L2=0,undo=[],netMsg='',acct=null,frs=[],inb=[],fpg=0,seen=new Set(),pollT=0;
 const ov={},songs={};
 const SK=[
@@ -164,7 +164,7 @@ let state='menu',px,py,vy,grounded,rot,parts=[],held=false,attempts=0,best=0,dea
 const bests={};
 try{const o=JSON.parse(localStorage.getItem('neondash.set')||'{}');if(o.m===false)mus.on=false;if(o.s===false)mute=true;if(o.l>=0&&o.l<NL)lv=o.l;if(o.k>=0&&o.k<200)skin=o.k;Object.assign(bests,o.b||{});admin=!!o.a;Object.assign(hcs,o.h||{})}catch(e){}
 try{const x=JSON.parse(localStorage.getItem('neondash.lv')||'{}');cust=x.c||[];Object.assign(ov,x.o||{})}catch(e){}
-resumeAcct().then(connect).then(ok=>{if(!ok)setTimeout(connect,5000)});
+setTimeout(()=>resumeAcct().then(connect).then(ok=>{if(!ok)setTimeout(connect,5000)}),0);
 ck=lv;mus.idx=LV[lv].tr;build();
 try{best=+localStorage.getItem('neondash.best')||0}catch(e){}
 function reset(){px=tstart;py=GY-T;vy=0;grounded=true;rot=0;parts=[];lastBeat=-1;shake=0;mode=0;spd=1;if(tstart)for(const o of obs.filter(z=>z.t==='p'&&z.x<tstart).sort((a,b)=>a.x-b.x))portal(o.k)}
